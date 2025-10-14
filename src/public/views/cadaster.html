@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestao-Mercado</title>
+</head>
+<body>
+    <h1>Cadastro de Usuário</h1>
+
+    <form id="form" method="POST">
+        <label>
+            Nome:
+            <input required placeholder="Digite seu nome" type="text" name="nome" id="name">
+        </label>
+        <br>
+        <label>
+            E-mail:
+            <input required placeholder="Digite seu e-mail" type="email" name="email" id="email">
+        </label>
+        <br>
+        <label>
+            Senha:
+            <input required placeholder="Digite sua senha" type="password" name="senha" id="password">
+        </label>
+        <br>
+        <label>
+            Telefone:
+            <input required placeholder="Digite seu telefone" type="number" name="telefone" id="phone">
+        </label>
+        <br>
+        <label>
+            Data de nascimento:
+            <input required type="date" name="dataDeNascimento" id="dateBirth">
+        </label>
+        <br> <br>
+
+        <button id="btn" type="submit">Cadastrar</button>
+    </form>
+
+<script type="module" src="./../scripts/dataFormCadasterUser.js"></script>
+
+</body>
+</html>

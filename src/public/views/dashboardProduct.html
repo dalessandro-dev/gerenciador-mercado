@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Gerencia Mercado</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <span>Gerência Mercado</span>
+            <span id="user-email">Carregando...</span>
+            <button id="logout-button">Sair</button>
+            <a id="link-cadaster" href="/dashboard/usuarios">Dashboard Usuários</a>
+            <a id="link-cadaster" href="/perfil">Meu perfil</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        <h1>Dashboard de Produtos</h1>
+
+        <section id="section-dashboard">
+            <h3 id="description">Cadastrar Novo Produto</h3>
+            <form method="POST" id="product-form">
+                <div>
+                    <label for="product-name">Nome do Produto:</label>
+                    <input type="text" class="input-product" id="product-name" name="nome" placeholder="Ex: Arroz Tio João 1kg" required>
+                </div>
+                <br>
+                <div>
+                    <label for="product-category">Categoria:</label>
+                    <input type="text" class="input-product" id="product-category" name="categoria" placeholder="Ex: Mercearia" required>
+                </div>
+                <br>
+                <div>
+                    <label for="product-price">Preço (R$):</label>
+                    <input type="number" class="input-product" id="product-price" name="preco" placeholder="Ex: 5.99" step="0.01" required>
+                </div>
+                <br>
+                <div>
+                    <label for="product-stock">Estoque (Unidades):</label>
+                    <input type="number" class="input-product" id="product-stock" name="quantidade" placeholder="Ex: 150" required>
+                </div>
+                <br>
+                <button id='btn-submit' type="submit">Cadastrar Produto</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section>
+            <h3>Lista de Produtos</h3>
+            <table border="1" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                        <th>Estoque</th>
+                        <th>Categoria</th>
+                        <th>Editar</th>
+                        <th>Deletar</th>
+                    </tr>
+                </thead>
+
+                <tbody id="table-products-body">
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+<script type="module" src="./../scripts/dashboardProduct.js"></script>
+</body>
+</html>

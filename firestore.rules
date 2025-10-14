@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // REGRA 1: BLOQUEIA TUDO POR PADRÃO
+    // O porteiro não deixa ninguém entrar, a menos que uma regra mais específica permita.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // REGRA 2: REGRAS PARA A COLEÇÃO 'produtos'
+    match /produtos/{produtoId} {
+      // PERMISSÃO DE LEITURA: Qualquer usuário logado pode ler a lista de produtos.
+      // Porteiro: "Se você é morador (está logado), pode ver o quadro de avisos (produtos)."
+      allow read: if request.auth != null;
+
+      // PERMISSÃO DE ESCRITA: Apenas usuários com a função de 'admin' podem criar, editar ou deletar produtos.
+      // Porteiro: "Só o síndico (admin) pode alterar o quadro de avisos."
+      allow write: if request.auth != null && get(/databases/$(database)/documents/usuarios/$(request.auth.uid)).data.isAdmin;
+    }
+
+    // REGRA 3: REGRAS PARA A COLEÇÃO 'usuarios'
+    match /usuarios/{userId} {
+      // PERMISSÃO DE LEITURA: Qualquer usuário logado pode ver o perfil de outros usuários.
+      // Porteiro: "Moradores podem ver a lista de nomes dos outros moradores."
+      allow read: if request.auth != null;
+
+      allow create: if true;
+
+      // PERMISSÃO DE ATUALIZAÇÃO: Um usuário só pode atualizar o SEU PRÓPRIO perfil.
+      // Porteiro: "Você só pode decorar o seu próprio apartamento (ID do documento == seu ID de login)."
+      allow update: if request.auth.uid == userId;
+    }
+  }
+}

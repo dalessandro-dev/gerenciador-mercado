@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Gerencia Mercado</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <span>Gerência Mercado</span>
+            <span id="user-email">Carregando...</span>
+            <button id="logout-button">Sair</button>
+            <a id="link-cadaster" href="/dashboard/produtos">Dashboard Produtos</a>
+            <a id="link-cadaster" href="/perfil">Meu perfil</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+        <h1>Dashboard de Usuários</h1>
+
+        <section id="section-dashboard">
+            <h3 id="description">Cadastrar Novo Usuário</h3>
+            <form method="POST" id="user-form">
+                <label>
+                    Nome:
+                    <input required class="input-user" placeholder="Digite seu nome" type="text" name="nome" id="name">
+                </label>
+                <br>
+                <label>
+                    E-mail:
+                    <input required class="input-user" placeholder="Digite seu e-mail" type="email" name="email" id="email">
+                </label>
+                <br>
+                <label>
+                    Senha:
+                    <input required class="input-user" placeholder="Digite sua senha" type="password" name="senha" id="password">
+                </label>
+                <br>
+                <label>
+                    Telefone:
+                    <input required class="input-user" placeholder="Digite seu telefone" type="number" name="telefone" id="phone">
+                </label>
+                <br>
+                <label>
+                    Data de nascimento:
+                    <input required class="input-user" type="date" name="dataDeNascimento" id="dateBirth">
+                </label>
+                <br>
+                <label>
+                    Tipo de usuário:
+                    <input required class="input-user" type="radio" value="user" name="funcao" checked>
+                    Padrão
+                    <input required class="input-user" type="radio" value="admin" name="funcao">
+                    Administrador
+                </label>
+                <br> <br>
+
+                <button id="btn-submit" type="submit">Cadastrar</button>
+            </form>
+        </section>
+
+        <hr>
+
+        <section>
+            <h3>Lista de Usuários</h3>
+            <table border="1" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Tipo de usuário</th>
+                        <th>Nasceu em</th>
+                        <th>Criado em</th>
+                        <th>Editar</th>
+                        <th>Deletar</th>
+                    </tr>
+                </thead>
+
+                <tbody id="table-users-body">
+                </tbody>
+            </table>
+        </section>
+    </main>
+    
+<script type="module" src="./../scripts/dashboardUser.js"></script>
+</body>
+</html>

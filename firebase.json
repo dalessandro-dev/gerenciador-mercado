@@ -1,0 +1,67 @@
+{
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
+    }
+  ],
+  "hosting": {
+    "public": "./src/public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/dashboard/produtos",
+        "destination": "/views/dashboardProduct.html"
+      },
+      {
+        "source": "/dashboard/usuarios",
+        "destination": "/views/dashboardUser.html"
+      },
+      {
+        "source": "/perfil",
+        "destination": "/views/profile.html"
+      },
+      {
+        "source": "/cadastro",
+        "destination": "/views/cadaster.html"
+      },
+      {
+        "source": "/login",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "emulators": {
+    "hosting": {
+      "port": 5000
+    },
+    "auth": {
+      "port": 9099
+    },
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "ui": {
+      "enabled": true,
+      "port": 3333
+    },
+    "singleProjectMode": true
+  }
+}
