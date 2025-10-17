@@ -74,6 +74,7 @@ Este projeto é um **sistema de gestão de mercado** desenvolvido utilizando **J
 
 6.  Para utilizar as rotas administrativas, deve ser utilizado o **JWT** de um administrador para autorização no header `Authorization` da requisição HTTP.
 7.  O front-end pode interagir normalmente com os **Emulators**, incluindo **autenticação**, **Firestore** e **Functions**.
+8.  Após rodar o **Emulators**, acesse o link http://localhost:5000/login no seu navegador.
 
 ## Observações Importantes:
 
@@ -87,6 +88,8 @@ Este projeto é um **sistema de gestão de mercado** desenvolvido utilizando **J
   **JWT** utilizado no header seja de um usuário administrador, por isso, um usuário administrador para testes já é criado por padrão quando o **emulators** é iniciado, suas credenciais são:
   - **E-mail:** admin@gmail.com
   - **Senha:** 123456
+
+- Acessar os arquivos `HTML` do site pelo **Live Server** ou pelo seu **path** no navegador fará o site não funcionar da maneira correta.
 
 ## Tecnologias Utilizadas:
 
